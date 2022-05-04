@@ -1,47 +1,59 @@
 .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-.container > div:nth-child(1) {
-    background-color: #F5AB35;
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.container > div:nth-child(2){
+.container>div:nth-child(1) {
   background-color: #F5AB35;
-    height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #245BB3;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.container > div:nth-child(2) > h1{
-    color: white;
-  }
+/* Vector */
+
+
+.container>div:nth-child(1):hover {
+  background-color: #e89212;
+}
+
+.container>div:nth-child(2) {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1061e4;
+  cursor: pointer;
+}
+
+.container>div:nth-child(2):hover {
+  background-color: #0a56d1;
+}
+
+.container>div:nth-child(2)>h1 {
+  color: white;
+}
 
 .new-session {
-    background-image: url(/assets/plus.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 10%;
-    width: 10%;
-}
-
-.joinsession{
   background-image: url(/assets/plus.png);
   background-repeat: no-repeat;
   background-size: contain;
   height: 10%;
-  width:10%
+  width: 10%;
+}
+
+.joinsession {
+  background-image: url(/assets/join.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 10%;
+  width: 10%
 }

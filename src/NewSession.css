@@ -1,4 +1,4 @@
-.newsesh{
+.newsesh {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,39 +8,58 @@
   background-color: #245BB3;
 }
 
-.newsesh > div > h1 {
+.newsesh>div>h1 {
   font-size: 50px;
   color: white;
   font-weight: normal;
 }
 
-.newsesh > h2 {
+.newsesh>h2 {
   font-size: 28px;
   color: white;
   font-weight: normal;
 }
 
-.newsesh > button{
+.newsesh>button {
   border-radius: 20px;
   background-color: #F5AB35;
   height: 50px;
-  width:150px;
+  width: 150px;
   cursor: pointer;
   border: 0px;
 }
 
-.newsesh > div {
+.newsesh>div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.newsesh > div > div {
+.newsesh>div>div {
   background-image: url(/assets/copy.png);
   background-size: contain;
   width: 37px;
   height: 37px;
   margin-left: 10px;
   margin-top: 8px;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.copium {
+  cursor: pointer;
+}
+
+.copium:hover div {
+  background-image: url(/assets/copy2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 37px;
+  height: 37px;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+.copium:hover h1 {
+  color: #A6A6A6;
 }

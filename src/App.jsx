@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import { Routes, Route, Link } from "react-router-dom";
-import logo from './logo.svg'
+import { Routes, Route } from "react-router-dom";
 import './App.css'
 import NewSession from './NewSession'
 import Home from './Home'
+import JoinSession from './JoinSession';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="sesion" element={<NewSession />} />
+        <Route path="/session" element={<NewSession />} />
+        <Route path="/join" element={<JoinSession />} />
       </Routes>
     </div>
   )

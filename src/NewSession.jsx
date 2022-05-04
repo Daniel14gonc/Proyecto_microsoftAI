@@ -3,11 +3,11 @@ import './NewSession.css'
 
 const NewSession = () => {
 
-  return(
+  return (
 
-    <div className="newsesh"> 
+    <div className="newsesh">
       <h2>ID de la sesión para estudiantes</h2>
-      <div>
+      <div className="copium">
         <h1>8F5432G</h1>
         <div />
       </div>
