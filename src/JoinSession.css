@@ -8,8 +8,54 @@
     justify-content: center;
 }
 
-.joinsesh-container>input {
+.cont2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.cont2 > h1 {
+    font-weight: normal;
+}
+
+.cont2 > input {
     background-color: #F5AB35;
     border-width: 0 0 3px;
     border-color: black;
+    width: 250px;
+    height: 50px;
+    outline: none;
+    font-size: 45px;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 35px;
+}
+
+.cont2 > button {
+    border-radius: 20px;
+    background-color: #245BB3;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    border: 0px;
+    margin-top: 35px;
+    color: white;
+}
+
+.arrow2 {
+    display: flex;
+    width: 100%;
+}
+
+.arrow2 > div {
+    background-image: url(/assets/arrow1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    margin-left: 30px;
+    margin-top: 30px;
+    cursor: pointer;
 }

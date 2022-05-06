@@ -6,7 +6,7 @@
 }
 
 .container>div:nth-child(1) {
-  background-color: #F5AB35;
+  background-color: #1061e4;
   height: 100%;
   width: 50%;
   display: flex;
@@ -19,7 +19,7 @@
 /* Vector */
 
 
-.container>div:nth-child(1):hover {
+.container>div:nth-child(2):hover {
   background-color: #e89212;
 }
 
@@ -30,15 +30,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #1061e4;
+  background-color: #F5AB35;
   cursor: pointer;
 }
 
-.container>div:nth-child(2):hover {
+.container>div:nth-child(1):hover {
   background-color: #0a56d1;
 }
 
-.container>div:nth-child(2)>h1 {
+.container>div:nth-child(1)>h1 {
   color: white;
 }
 
@@ -46,14 +46,14 @@
   background-image: url(/assets/plus.png);
   background-repeat: no-repeat;
   background-size: contain;
-  height: 10%;
-  width: 10%;
+  height: 80px;
+  width: 80px;
 }
 
 .joinsession {
   background-image: url(/assets/join.png);
   background-repeat: no-repeat;
   background-size: contain;
-  height: 10%;
-  width: 10%
+  height: 80px;
+  width: 80px;
 }
