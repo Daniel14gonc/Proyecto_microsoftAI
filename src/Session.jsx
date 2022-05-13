@@ -3,11 +3,10 @@ import { useLocation } from "react-router-dom";
 import io from "socket.io-client"
 import './Session.css'
 
-const socket = io.connect("http://localhost:5000")
+const socket = io.connect("20.231.4.14")
 
 
 
-var startRecognizeOnceAsyncButton;
 
 // subscription key and region for speech services.
 var subscriptionKey, serviceRegion;
@@ -105,7 +104,6 @@ const Session = (props) => {
         console.log("Room: ", location.state.id)
         socket.emit("join_room", location.state.id)
         socket.emit("send_message", { sms, room })
-        startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton")
         subscriptionKey = "25c4e0b418d142fdae55e26d49fa5797"
         serviceRegion = "eastus"
         SpeechSDK = window.SpeechSDK
