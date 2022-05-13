@@ -1,0 +1,14 @@
+{
+  "name": "dani",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pru.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.21.0"
+  }
+}

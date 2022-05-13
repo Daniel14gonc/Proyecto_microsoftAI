@@ -55,7 +55,7 @@ const recognize = (send, room, setSpeaking) => {
     var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
 
     speechConfig.speechRecognitionLanguage = "es-US";
-    var audioConfig  = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+    var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
     recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
     recognizer.startContinuousRecognitionAsync()
@@ -78,10 +78,10 @@ const recognize = (send, room, setSpeaking) => {
 }
 
 const endSession = (room) => {
-    console.log('si')
+    console.log('Termino', room)
     recognizer.stopContinuousRecognitionAsync()
     recognizer = ''
-    socket.emit("END",{room})
+    socket.emit("END", { room })
 }
 
 
@@ -92,26 +92,26 @@ const Session = (props) => {
     const [sms, setsms] = useState('HOLA DESDE ROM')
     const [speaking, setSpeaking] = useState(false)
 
-    
-    useEffect(()=>{
-        socket.on("connect",()=>{
+
+    useEffect(() => {
+        socket.on("connect", () => {
             console.log(`Me logre conectar: ${socket.id}`)
         })
 
         const send = (sms, room) => {
             console.log('emitido')
-            socket.emit("send_message",{sms, room})
+            socket.emit("send_message", { sms, room })
         }
-        console.log("Room: ",location.state.id)
-        socket.emit("join_room",location.state.id)
-        socket.emit("send_message",{sms,room})
+        console.log("Room: ", location.state.id)
+        socket.emit("join_room", location.state.id)
+        socket.emit("send_message", { sms, room })
         startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton")
         subscriptionKey = "25c4e0b418d142fdae55e26d49fa5797"
         serviceRegion = "eastus"
         SpeechSDK = window.SpeechSDK
 
         recognize(send, room, setSpeaking)
-    },[])
+    }, [])
 
     return (
         <div className={speaking ? "cont-speak-s" : "cont-speak"}>
