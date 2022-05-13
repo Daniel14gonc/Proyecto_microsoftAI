@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import io from "socket.io-client"
 import './Session.css'
 
-const socket = io.connect("http://localhost:5000")
+const socket = io.connect("20.231.4.14")
 
 
 

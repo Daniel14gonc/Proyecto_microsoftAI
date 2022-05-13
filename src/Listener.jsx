@@ -6,7 +6,7 @@ import io from "socket.io-client"
 
 const Listener = () => {
 
-    const [socket,] = useState(io.connect("http://localhost:5000"))
+    const [socket,] = useState(io.connect("20.231.4.14"))
     const first = useRef(0)
 
     const location = useLocation()
