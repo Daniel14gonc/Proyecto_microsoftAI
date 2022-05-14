@@ -8,11 +8,11 @@ const Home = () => {
     return (
         <div className="container">
             <div onClick={() => nav('/session')}>
-                <h1>Nueva sesión</h1>
+                <h1>Create new session</h1>
                 <div className="new-session" />
             </div>
             <div onClick={() => nav('/join')}>
-                <h1>Unirse a una Sesión</h1>
+                <h1>Join session</h1>
                 <div className="joinsession" />
             </div>
         </div>

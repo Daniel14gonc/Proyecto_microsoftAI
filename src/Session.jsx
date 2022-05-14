@@ -89,7 +89,7 @@ const Session = (props) => {
         console.log('Termino', room)
         recognizer.stopContinuousRecognitionAsync()
         recognizer = ''
-        socket.emit("END", { room })
+        socket.emit("END", room)
         nav('/')
     }
 
@@ -114,13 +114,13 @@ const Session = (props) => {
 
     return (
         <div className={speaking ? "cont-speak-s" : "cont-speak"}>
-            <p style={{marginTop: '-200px', marginBottom: '200px', fontSize: '35px', color: 'white'}}>Estas en la room {location.state.id}</p>
+            <p style={{marginTop: '-50px', marginBottom: '50px', fontSize: '30px', color: 'white'}}>You are in room {location.state.id}</p>
             <div>
                 <div >
-                    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '30px'}}>Habla</div>
+                    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px', fontWeight: 'bold'}}>Speak</div>
                 </div>
             </div>
-            <button className="terminar" onClick={() => endSession(room)}>Terminar sesión</button>
+            <button className="terminar" onClick={() => endSession(room)}>End session</button>
         </div>
     )
 }

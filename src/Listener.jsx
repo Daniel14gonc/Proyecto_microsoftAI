@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client"
+import './NewSession.css'
 
 // const socket = io.connect("http://localhost:5000")
 
@@ -11,10 +12,11 @@ const Listener = () => {
 
     const location = useLocation()
     const [room, setroom] = useState('')
-    const [datos, setdatos] = useState('Bienvenid@ a tu sesión, empezará en breve.')
+    const [datos, setdatos] = useState('')
     const text = useRef('')
     const history = useRef([])
     const [end, setEnd] = useState(false)
+
 
     /*useEffect(()=>{
         socket.on("connect",()=>{
@@ -37,14 +39,17 @@ const Listener = () => {
 
         socket.on("receive_sms", (data) => {
             history.current.push(data.sms)
+            if (data.sms !== undefined && data.sms !== 'La sesion ha iniciado')
+                text.current += data.sms
             let res = ''
-            history.current.map((e) => { res += e, text.current += e })
+            history.current.map((e) => { res += e })
             if (history.current.length === 5) history.current = history.current.slice(1, history.current.length)
             setdatos(res)
         })
 
         socket.on("termina_session", () => {
             console.log('si')
+            setEnd(true)
             setdatos('TERMINO LA SESION')
         })
     }, [socket])
@@ -52,8 +57,8 @@ const Listener = () => {
     if (end) {
         return (
             <div className="joinsesh-container">
-                <div className="copium" onClick={() => navigator.clipboard.writeText(text)}>
-                    <h1>Guarda todo el texto de la sesion</h1>
+                <div className="copium" onClick={() => navigator.clipboard.writeText(text.current)}>
+                    <h1>Copy all the captions to clipboard!</h1>
                 </div>
             </div>
         )
@@ -63,7 +68,7 @@ const Listener = () => {
     return (
         <div className="joinsesh-container">
             {
-                history.current.length === 0 && <div style={{ fontSize: '20px' }}>Bienvenid@ a tu sesión, empezará en breve.</div>
+                history.current.length === 0 && <div style={{ fontSize: '20px' }}>Welcome to your session, it will begin shortly.</div>
             }
             {
                 history.current.map((dat, index) => {
