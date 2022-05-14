@@ -11,9 +11,9 @@ const JoinSession = () => {
                 <div onClick={() => nav('/')}/>
             </div>
             <div className="cont2">
-                <h1>Ingresa ID de la sesión</h1>
+                <h1>Enter session ID</h1>
                 <input onChange ={(e) => setID(e.target.value)} type="text"  />
-                <button onClick={() => nav('/joinSession', {state:{id:ID}})} >Ingresar</button>
+                <button onClick={() => ID !== '' && nav('/joinSession', {state:{id:ID}})} >Enter room</button>
             </div>
         </div>
     )

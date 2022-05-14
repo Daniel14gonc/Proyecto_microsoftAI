@@ -13,12 +13,12 @@ const NewSession = () => {
         <div onClick={() => nav('/')}/>
       </div>
       <div className="cont">
-        <h2>ID de la sesión para estudiantes</h2>
+        <h2>Share your session ID</h2>
         <div className="copium" onClick={() => navigator.clipboard.writeText(ID_session)}>
           <h1>{ID_session}</h1>
           <div />
         </div>
-        <button onClick={() => nav('/newSession', {state: {id: ID_session}})}>Iniciar</button>
+        <button onClick={() => nav('/newSession', {state: {id: ID_session}})}>Start session</button>
       </div>
     </div>
 

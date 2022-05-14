@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import io from "socket.io-client"
 import './Session.css'
 
-const socket = io.connect("20.231.4.14")
 
 
-
-var startRecognizeOnceAsyncButton;
 
 // subscription key and region for speech services.
 var subscriptionKey, serviceRegion;
@@ -77,21 +74,24 @@ const recognize = (send, room, setSpeaking) => {
     }
 }
 
-const endSession = (room) => {
-    console.log('Termino', room)
-    recognizer.stopContinuousRecognitionAsync()
-    recognizer = ''
-    socket.emit("END", { room })
-}
+
 
 
 const Session = (props) => {
-
+    const nav = useNavigate()
     const location = useLocation()
     const [room, setroom] = useState(location.state.id)
-    const [sms, setsms] = useState('HOLA DESDE ROM')
+    const [sms, setsms] = useState('La sesion ha iniciado')
     const [speaking, setSpeaking] = useState(false)
+    const [socket,] = useState(io.connect("https://communic-aid.com"))
 
+    const endSession = (room) => {
+        console.log('Termino', room)
+        recognizer.stopContinuousRecognitionAsync()
+        recognizer = ''
+        socket.emit("END", room)
+        nav('/')
+    }
 
     useEffect(() => {
         socket.on("connect", () => {
@@ -105,7 +105,6 @@ const Session = (props) => {
         console.log("Room: ", location.state.id)
         socket.emit("join_room", location.state.id)
         socket.emit("send_message", { sms, room })
-        startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton")
         subscriptionKey = "25c4e0b418d142fdae55e26d49fa5797"
         serviceRegion = "eastus"
         SpeechSDK = window.SpeechSDK
@@ -115,12 +114,13 @@ const Session = (props) => {
 
     return (
         <div className={speaking ? "cont-speak-s" : "cont-speak"}>
+            <p style={{ marginTop: '-50px', marginBottom: '50px', fontSize: '30px', color: 'white' }}>You are in room {location.state.id}</p>
             <div>
                 <div >
-                    <div />
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px', fontWeight: 'bold' }}>Speak</div>
                 </div>
             </div>
-            <button className="terminar" onClick={() => endSession(room)}>Terminar sesión</button>
+            <button className="terminar" onClick={() => endSession(room)}>End session</button>
         </div>
     )
 }
