@@ -81,7 +81,7 @@ const Session = (props) => {
     const nav = useNavigate()
     const location = useLocation()
     const [room, setroom] = useState(location.state.id)
-    const [sms, setsms] = useState('La sesion ha iniciado')
+    const [sms, setsms] = useState('Your session has started')
     const [speaking, setSpeaking] = useState(false)
     const [socket,] = useState(io.connect("https://communic-aid.com"))
 
