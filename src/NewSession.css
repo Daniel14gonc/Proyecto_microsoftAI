@@ -54,6 +54,14 @@
   cursor: pointer;
 }
 
+.copium2 {
+  cursor: pointer;
+}
+
+.copium2:hover h1 {
+  color: white;
+}
+
 .copium:hover div {
   background-image: url(/assets/copy2.png);
   background-size: contain;

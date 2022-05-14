@@ -39,7 +39,7 @@ const Listener = () => {
 
         socket.on("receive_sms", (data) => {
             history.current.push(data.sms)
-            if (data.sms !== undefined && data.sms !== 'La sesion ha iniciado')
+            if (data.sms !== undefined && data.sms !== 'Your session has started')
                 text.current += data.sms
             let res = ''
             history.current.map((e) => { res += e })
@@ -57,7 +57,7 @@ const Listener = () => {
     if (end) {
         return (
             <div className="joinsesh-container">
-                <div className="copium" onClick={() => navigator.clipboard.writeText(text.current)}>
+                <div className="copium2" onClick={() => navigator.clipboard.writeText(text.current)}>
                     <h1>Copy all the captions to clipboard!</h1>
                 </div>
             </div>
