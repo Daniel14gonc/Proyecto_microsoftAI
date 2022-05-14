@@ -39,7 +39,7 @@ const Listener = () => {
             history.current.push(data.sms)
             let res = ''
             history.current.map((e) => { res += e, text.current += e })
-            if (history.current.length === 5) history.current = history.current.slice(1, 4)
+            if (history.current.length === 5) history.current = history.current.slice(1, history.current.length)
             setdatos(res)
         })
 
