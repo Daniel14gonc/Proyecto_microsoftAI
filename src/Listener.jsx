@@ -6,7 +6,7 @@ import io from "socket.io-client"
 
 const Listener = () => {
 
-    const [socket,] = useState(io.connect("http://localhost:5000"))
+    const [socket,] = useState(io.connect("https://communic-aid.com"))
     const first = useRef(0)
 
     const location = useLocation()
@@ -14,6 +14,7 @@ const Listener = () => {
     const [datos, setdatos] = useState('Bienvenid@ a tu sesión, empezará en breve.')
     const text = useRef('')
     const history = useRef([])
+    const [end, setEnd] = useState(false)
 
     /*useEffect(()=>{
         socket.on("connect",()=>{
@@ -43,9 +44,22 @@ const Listener = () => {
         })
 
         socket.on("termina_session", () => {
-            setdatos('TERMINO LA SESSIOn')
+            console.log('si')
+            setdatos('TERMINO LA SESION')
         })
     }, [socket])
+
+    if (end) {
+        return (
+            <div className="joinsesh-container">
+                <div className="copium" onClick={() => navigator.clipboard.writeText(text)}>
+                    <h1>Guarda todo el texto de la sesion</h1>
+                </div>
+            </div>
+        )
+    }
+        
+
     return (
         <div className="joinsesh-container">
             {
