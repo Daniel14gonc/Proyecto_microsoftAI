@@ -40,7 +40,7 @@ const Listener = () => {
         socket.on("receive_sms", (data) => {
             history.current.push(data.sms)
             if (data.sms !== undefined && data.sms !== 'Your session has started')
-                text.current += data.sms
+                text.current += data.sms + ' '
             let res = ''
             history.current.map((e) => { res += e })
             if (history.current.length === 5) history.current = history.current.slice(1, history.current.length)
