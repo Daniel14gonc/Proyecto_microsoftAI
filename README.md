@@ -22,8 +22,9 @@ This project used all the following tools.
 
 1. Clone this repo using `https://github.com/Daniel14gonc/Proyecto_microsoftAI.git`.
 2. Move to the appropiate directory: `cd Proyecto_microsoftAI`.
-3. Run `npm run dev`.
-4. Go to `http://localhost:3000` on your web browser.
+3. Run `npm install`
+4. Run `npm run dev`.
+5. Go to `http://localhost:3000` on your web browser.
 
 Of course this is just in case you want to run it locally.
 We are online! [Go to page.](https://communic-aid.com/)
