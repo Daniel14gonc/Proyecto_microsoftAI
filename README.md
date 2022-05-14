@@ -14,7 +14,7 @@ in a wide variety of contexts, but education is the priority.
 This project used all the following tools.
  - ⚛ **React**  - 18.1.0
 - 💅 **CSS** — Styled components.
-- 🖥️ **Express** - Server Side Rendering
+- 🖥️ **Express** - Socket server.
 - 🛰️ **Socket.io** - Caption streaming.
 - 🧠 **Azure Speech To Text Cognitive Services** - Speech to text transcription.
 
