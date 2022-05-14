@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import io from "socket.io-client"
 import './NewSession.css'
 
@@ -16,6 +16,7 @@ const Listener = () => {
     const text = useRef('')
     const history = useRef([])
     const [end, setEnd] = useState(false)
+    const nav = useNavigate()
 
 
     /*useEffect(()=>{
@@ -57,7 +58,7 @@ const Listener = () => {
     if (end) {
         return (
             <div className="joinsesh-container">
-                <div className="copium2" onClick={() => navigator.clipboard.writeText(text.current)}>
+                <div className="copium2" onClick={() => {navigator.clipboard.writeText(text.current); nav('/')}}>
                     <h1>Copy all the captions to clipboard!</h1>
                 </div>
             </div>
