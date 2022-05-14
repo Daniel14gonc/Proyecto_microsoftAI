@@ -51,7 +51,7 @@ const recognize = (send, room, setSpeaking) => {
     }
     var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
 
-    speechConfig.speechRecognitionLanguage = "es-US";
+    speechConfig.speechRecognitionLanguage = "en-US";
     var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
     recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
