@@ -6,7 +6,7 @@ import './NewSession.css'
 const NewSession = () => {
   const [ID_session,chageID] = React.useState( Math.floor(Math.random()*16777215).toString(16))
   const nav = useNavigate()
-  const language = useRef('en')
+  const language = useRef('en-US')
 
   const change = (e) => {
     language.current = e.target.value
@@ -25,7 +25,7 @@ const NewSession = () => {
         </div>
         <div className="language">
           <p>Choose your session language</p>
-          <select name="select" defaultValue='English' onChange={change}>
+          <select name="select" defaultValue='en-US' onChange={change}>
             <option value="en-US">English</option>
             <option value="es-US">Español</option>
             <option value="de-DE">Deutsch</option>
