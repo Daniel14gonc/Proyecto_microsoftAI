@@ -74,7 +74,7 @@ const recognize = (send, room, setSpeaking, language) => {
     }
 }
 
-const choose = () => {
+const choose = (language) => {
     switch (language) {
         case 'en-US':
             return 'Your session has started'
@@ -96,7 +96,7 @@ const Session = (props) => {
     const nav = useNavigate()
     const location = useLocation()
     const [room, setroom] = useState(location.state.id)
-    const [sms, setsms] = useState(choose())
+    const [sms, setsms] = useState(choose(language))
     const [speaking, setSpeaking] = useState(false)
     const [socket,] = useState(io.connect("https://communic-aid.com"))
 
