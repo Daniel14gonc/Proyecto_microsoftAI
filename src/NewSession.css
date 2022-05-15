@@ -92,3 +92,24 @@
   margin-top: 30px;
   cursor: pointer;
 }
+
+.language {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.language > p {
+  color: white;
+  font-size: 20px;
+}
+
+select {
+  height: 30px;
+  width: 110px;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-size: 16px;
+}

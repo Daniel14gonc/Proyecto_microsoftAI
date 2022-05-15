@@ -10,6 +10,8 @@ import './Session.css'
 var subscriptionKey, serviceRegion;
 var SpeechSDK;
 var recognizer;
+const language = localStorage.getItem('language')
+console.log(language)
 
 /*const recognize = (setListen, listen) => {
     console.log('hola')
@@ -51,7 +53,7 @@ const recognize = (send, room, setSpeaking) => {
     }
     var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
 
-    speechConfig.speechRecognitionLanguage = "en-US";
+    speechConfig.speechRecognitionLanguage = language
     var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
     recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
 
@@ -74,6 +76,20 @@ const recognize = (send, room, setSpeaking) => {
     }
 }
 
+const choose = () => {
+    switch (language) {
+        case 'en-US':
+            return 'Your session has started'
+        case 'es-US':
+            return 'La sesión ha iniciado'
+        case 'de-DE':
+            return 'Die Sitzung hat begonnen'
+        case 'fr-FR':
+            return 'La session a commencé'
+        case 'pt-BR':
+            return 'A sessão já começou'
+    }
+}
 
 
 
@@ -81,7 +97,7 @@ const Session = (props) => {
     const nav = useNavigate()
     const location = useLocation()
     const [room, setroom] = useState(location.state.id)
-    const [sms, setsms] = useState('Your session has started')
+    const [sms, setsms] = useState(choose())
     const [speaking, setSpeaking] = useState(false)
     const [socket,] = useState(io.connect("https://communic-aid.com"))
 
