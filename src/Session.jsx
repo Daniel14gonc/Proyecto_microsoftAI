@@ -9,9 +9,7 @@ import './Session.css'
 // subscription key and region for speech services.
 var subscriptionKey, serviceRegion;
 var SpeechSDK;
-var recognizer;
-const language = localStorage.getItem('language')
-console.log(language)
+var recognizer
 
 /*const recognize = (setListen, listen) => {
     console.log('hola')
@@ -46,7 +44,7 @@ console.log(language)
     }
 }*/
 
-const recognize = (send, room, setSpeaking) => {
+const recognize = (send, room, setSpeaking, language) => {
     if (subscriptionKey === "" || subscriptionKey === "subscription") {
         alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
         return;
@@ -94,6 +92,7 @@ const choose = () => {
 
 
 const Session = (props) => {
+    const language = localStorage.getItem('language')
     const nav = useNavigate()
     const location = useLocation()
     const [room, setroom] = useState(location.state.id)
@@ -106,6 +105,7 @@ const Session = (props) => {
         recognizer.stopContinuousRecognitionAsync()
         recognizer = ''
         socket.emit("END", room)
+        localStorage.removeItem('language')
         nav('/')
     }
 
@@ -125,7 +125,7 @@ const Session = (props) => {
         serviceRegion = "eastus"
         SpeechSDK = window.SpeechSDK
 
-        recognize(send, room, setSpeaking)
+        recognize(send, room, setSpeaking, language)
     }, [])
 
     return (
