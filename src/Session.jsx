@@ -75,6 +75,7 @@ const recognize = (send, room, setSpeaking, language) => {
 }
 
 const choose = (language) => {
+    console.log(language)
     switch (language) {
         case 'en-US':
             return 'Your session has started'
